@@ -5,10 +5,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/")
 public class DemoController {
 	
 	
+	@RequestMapping("/")
+	public String appM() {
+		
+		return " Heroku App works!!" ;
+	}		
 	
 	@RequestMapping("/hello")
 	public String hello() {
