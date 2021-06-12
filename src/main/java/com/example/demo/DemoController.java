@@ -15,10 +15,10 @@ public class DemoController {
 		return " Heroku App works!!" ;
 	}		
 	
-	@RequestMapping("/springEmoApi")
-	public String springEmoApi(@RequestParam("text") String text) {
+	@RequestMapping("/hello")
+	public String hello() {
 		RestTemplate restTemplate = new RestTemplate();
-		String res = restTemplate.getForObject("http://ec2-18-191-175-12.us-east-2.compute.amazonaws.com/process/"+text, String.class);
+		String res = restTemplate.getForObject("http://ec2-18-191-175-12.us-east-2.compute.amazonaws.com/", String.class);
 		return res ;
 	}
 
