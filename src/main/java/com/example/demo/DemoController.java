@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,9 +19,10 @@ public class DemoController {
 	}		
 	
 	@RequestMapping("/springEmoApi")
-	public String springEmoApi(@RequestParam("text") String text) {
+	public String springEmoApi(@RequestParam("text") String text, HttpServletResponse response) {
 		RestTemplate restTemplate = new RestTemplate();
 		String res = restTemplate.getForObject("http://ec2-18-191-175-12.us-east-2.compute.amazonaws.com/process/"+text, String.class);
+		response.setHeader("Access-Control-Allow-Origin", "*");
 		return res ;
 	}
 
